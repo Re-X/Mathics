@@ -6,7 +6,7 @@ def run():
     y = 1
     x = input("\nEnter the no. of triplets or range of values (initial and final value)\n>>> ")
     for k in range (len(x)):
-        if x[k] != ',':
+        if (x[k] != ','):
             ar.append(x[k])
     x = "".join(ar)
     l = x.split(" ")
