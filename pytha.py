@@ -12,6 +12,12 @@ def run():
     l = x.split(" ")
     if(l.count("")>0):
         l.remove("")
+    if(not l[0].isdigit() and (l[0] != "inrange" or l[0] != "range")):
+        print("Please enter a valid range (initial value must be smaller than final value)")
+        return
+    elif(not l[0].isdigit() and len(l)<2):
+        print("Please enter a valid range (initial value must be smaller than final value)")
+        return
     if((l[0] == "inrange" or l[0] == "range")):
         x=l[2]
         y=l[1]
