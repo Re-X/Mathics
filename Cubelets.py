@@ -4,7 +4,7 @@ def main():
     s = []
     x = input(">>> ")
     if(x.count(",")>0):
-        s = x.split(",")
+        s = x.split(',')
     else:
         s = x.split(" ")
     
