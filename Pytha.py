@@ -1,5 +1,3 @@
-import sys
-
 print("PYTHAGOREAN TRIPLETS: \n")
 
 
@@ -8,7 +6,7 @@ def run():
     y = 1
     x = input("\nEnter the no. of triplets or range of values (initial and final value)\n>>> ")
     for k in range (len(x)):
-        if (x[k] != ','):
+        if x[k] != ',':
             ar.append(x[k])
     x = "".join(ar)
     l = x.split(" ")
@@ -39,7 +37,7 @@ def run():
         y=1
     s=0
     for i in range(y, x+1):
-        for j in range(y, 10*x+1):
+        for j in range(1, i+1):
             if(int(((i**2 + j**2)**(1/2)))==((i**2 + j**2)**(1/2))):
                 print(i, "\u00b2 + ", j, "\u00b2", " = ", int((i**2 + j**2)**(1/2)), "\u00b2", sep='')
 
