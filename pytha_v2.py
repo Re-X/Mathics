@@ -1,8 +1,7 @@
 '''                       UNIQUE PYTHOGREAN TRIPLETS'''
-k = 0
 while(1):
     print('\n\t\t\tUNIQUE PYTHOGREAN TRIPLETS\n\n')
-    k = 1
+    
     n = int(input())
 
     for i in range(1, n+1):
