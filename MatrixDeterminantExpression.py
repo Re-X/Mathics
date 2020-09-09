@@ -13,7 +13,7 @@ def printMat(L):
             print(L[i][j] + " "*(9 - len(L[i][j])), end = '')
         print()
 
-def det(L):
+def det(L, b=1):
     d = 0;
     if(len(L)==1 and len(L[0])==1):
         return L[0][0]
@@ -24,11 +24,19 @@ def det(L):
                 M[y] = M[y][:x] + M[y][x+1:]
             
             if(x%2==0):
-                print(" + ", L[0][x], sep = '', end = '*(')
-                print(det(M), end = ')')
+                if(len(M)>1):
+                    print(" + " * b, L[0][x], sep = '', end = '*(')
+                    print(det(M, 0), end = ')')
+                else:
+                    print(L[0][x], sep = '', end = '*')
+                    print(det(M, 1), end = '')
             else:
-                print(" - ", L[0][x], sep = '', end = '*(')
-                print(det(M), end = ')')
+                if(len(M)>1):
+                    print(" - ", L[0][x], sep = '', end = '*(')
+                    print(det(M), end = ')')
+                else:
+                    print(" - ", L[0][x], sep = '', end = '*')
+                    print(det(M), end = '')
         return ""
 
 while 1:
@@ -39,5 +47,3 @@ while 1:
     print("\n Determinant Expression:")
     det(X)
     print(";")
-
-
