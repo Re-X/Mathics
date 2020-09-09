@@ -26,7 +26,7 @@ def subMat(L, x, y):
     
     return S
 
-def det(L, sign = 0):
+def det(L):
     d = 0;
     if(len(L)==1 and len(L[0])==1):
         return L[0][0]
@@ -38,17 +38,17 @@ def det(L, sign = 0):
             
             if(x%2==0):
                 if(len(M)>1):
-                    print("+" * (1-sign) + "-"*sign, L[0][x], sep = '', end = '*(')
+                    print("+", L[0][x], sep = '', end = '*(')
                     print(det(M), end = ')')
                 else:
-                    print("-"*sign, L[0][x], sep = '', end = '*')
+                    print(L[0][x], sep = '', end = '*')
                     print(det(M), end = '')
             else:
                 if(len(M)>1):
-                    print("-" * (1-sign) + "+"*sign, L[0][x], sep = '', end = '*(')
+                    print("-", L[0][x], sep = '', end = '*(')
                     print(det(M), end = ')')
                 else:
-                    print("-" * (1-sign) + "+"*sign, L[0][x], sep = '', end = '*')
+                    print("-", L[0][x], sep = '', end = '*')
                     print(det(M), end = '')
             
         return ""
@@ -58,7 +58,7 @@ def Cofactors(L):
     print("Cofactors:")
     for i in range(len(L)):
         for j in range(len(L[0])):
-            print(X[i][j], end = ' = ')
+            print('r' + X[i][j], end = ' = ' + "-("*((i+j)%2!=0) + " ("*((i+j)%2==0))
             print(det(subMat(L, i, j), (i+j)%2), end = ';\n')
 
 def Inv(L):
@@ -69,8 +69,8 @@ def Inv(L):
         for j in range(len(L[0])):
             if(f%len(L[0])==0):
                 print()
-            print(X[j][i], end = ' = (')
-            print(det(subMat(L, i, j), (i+j)%2), end = ')/det;\n')
+            print('r' + X[j][i], end = ' = ' + "-("*((i+j)%2!=0) + " ("*((i+j)%2==0))
+            print(det(subMat(L, i, j)), end = ')/det;\n')
             f+=1
 
 while 1:
@@ -78,4 +78,5 @@ while 1:
     X = Mat(n)
     printMat(X)
     Inv(X)
+
 
